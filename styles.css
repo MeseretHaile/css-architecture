@@ -1,0 +1,97 @@
+@layer reset, base, layout, components, utilities, overrides;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+  }
+}
+
+@layer base {
+  :root {
+    /* Add design tokens here. */
+    --color-bg: #faf7f2;
+    --color-text: #303030;
+    --color-surface: #ede3d5;
+    --color-champagne: #d4b483;
+    --color-main: #a67c45;
+    --focus-outline: 3px solid #a67c45;
+    --radius: 8px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 32px;
+  }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    background-color: var(--color-bg);
+  }
+
+  img,
+  svg {
+    max-width: 100%;
+  }
+}
+
+@layer layout {
+  /* Add page-level layout and composition classes here. */
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md);
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+  }
+  .hero {
+    padding: var(--space-lg);
+    text-align: center;
+  }
+  .section {
+    padding: var(--space-lg);
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--space-lg);
+  }
+  .card {
+    border-radius: var(--radius);
+    box-shadow: 0 4px 8px #303030;
+    padding: var(--space-lg);
+  }
+}
+
+@layer components {
+  /* Add reusable components such as buttons, cards, callouts, and forms here. */
+}
+
+@layer utilities {
+  .visually-hidden {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+  }
+}
+
+@layer overrides {
+  /* Keep this layer small. Use it only for intentional exceptions. */
+}
+
+@media print {
+  /* Add print improvements here. */
+}
