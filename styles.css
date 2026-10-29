@@ -20,6 +20,7 @@
     --color-surface: #ede3d5;
     --color-champagne: #d4b483;
     --color-main: #a67c45;
+    --color-white: white;
     --focus-outline: 3px solid #a67c45;
     --radius: 8px;
     --space-sm: 8px;
@@ -31,6 +32,7 @@
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.5;
     background-color: var(--color-bg);
+    color: var(--color-text);
   }
 
   img,
@@ -46,6 +48,7 @@
     justify-content: space-between;
     align-items: center;
     padding: var(--space-md);
+    background-color: var(--color-champagne);
   }
 
   .nav-list {
@@ -65,15 +68,62 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: var(--space-lg);
   }
-  .card {
-    border-radius: var(--radius);
-    box-shadow: 0 4px 8px #303030;
-    padding: var(--space-lg);
+  .site-footer {
+    background-color: var(--color-champagne);
+    padding: var(--space-sm);
+    text-align: center;
+  }
+  .interest-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    max-width: 400px;
   }
 }
 
 @layer components {
   /* Add reusable components such as buttons, cards, callouts, and forms here. */
+  .nav-list a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .site-logo {
+    color: var(--color-main);
+    font-family: cursive;
+    font-size: 32px;
+    text-decoration: none;
+  }
+
+  .callout {
+    background-color: var(--color-surface);
+    border-left: 6px solid var(--color-main);
+    padding: var(--space-md);
+    border-radius: var(--radius);
+  }
+
+  .card {
+    border-radius: var(--radius);
+    box-shadow: 0 4px 8px var(--color-text);
+    padding: var(--space-lg);
+  }
+  .button {
+    display: inline-block;
+    background-color: var(--color-champagne);
+    color: var(--color-bg);
+    padding: var(--space-sm);
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 4px 4px var(--color-text);
+  }
+  .button:hover {
+    background-color: var(--color-main);
+  }
+  .nav-list a:hover {
+    background-color: var(--color-main);
+  }
 }
 
 @layer utilities {
@@ -94,4 +144,17 @@
 
 @media print {
   /* Add print improvements here. */
+  body {
+    background-color: white;
+    color: black;
+  }
+  .site-header,
+  .interest-form,
+  .button,
+  #register h2 {
+    display: none;
+  }
+  .callout {
+    border-left: none;
+  }
 }
